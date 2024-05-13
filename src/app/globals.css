@@ -9,12 +9,26 @@
 }
 
 .bg__gradient {
-  background: linear-gradient(
-    105.65deg,
-    rgba(150, 52, 136, 0.2) 0.15%,
-    rgba(252, 111, 50, 0.2) 130.58%,
-    rgba(255, 74, 89, 0.2) 263.64%
-  );
+  background: linear-gradient(106.2deg, rgba(150, 52, 136, 0.2) -12.33%, rgba(252, 111, 50, 0.2) 50.28%, rgba(255, 74, 89, 0.2) 114.17%);
+
+}
+
+.border-gradient {
+  position: relative;
+}
+
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* border-radius: 50px; */
+  border: 2px solid transparent;
+  background: linear-gradient(106.2deg, #963488 -12.33%, #FC6F32 50.28%, #FF4A59 114.17%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 
 body {
