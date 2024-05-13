@@ -8,25 +8,32 @@ const ScrollLine = () => {
   const { scrollYProgress } = useScroll({ target: element, offset: ["start 0.9", "start 0.7"] });
   const { scrollYProgress: scrollLine } = useScroll({
     target: elementScrollLine,
-    offset: ["start start", "start end"],
+    offset: ["start end", "end start"],
   });
-  const translateY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const left = useTransform(scrollLine, [0, 1], ["-0px", "800px"]);
+  const translateY = useTransform(scrollYProgress, [0, 1], ["10px", "-50px"]);
+  const left = useTransform(scrollLine, [0, 1], ["5%", "-90%"]);
   return (
     <>
       <motion.p
-        style={{ opacity: scrollYProgress, transform: `translateY(${translateY}px` }}
+        style={{ opacity: scrollYProgress, translateY }}
         ref={element}
         className="text-white text-[64px]  text-center"
       >
         Projects integrated into the Arrakis AI Ecosystem
       </motion.p>
-      <motion.div ref={elementScrollLine} style={{ left }} className="flex gap-[180px] w-full items-center relative">
+      <motion.div
+        ref={elementScrollLine}
+        style={{ left }}
+        className="flex gap-[180px] w-full items-center relative pointer-events-none"
+      >
         <img src="solana.svg" />
+        <img src="arwave.svg" />
+        <img src="bitttensor.svg" />
+        <img src="round.svg" />
         <img src="solana.svg" />
-        <img src="solana.svg" />
-        <img src="solana.svg" />
-        <img src="solana.svg" />
+        <img src="arwave.svg" />
+        <img src="bitttensor.svg" />
+        <img src="round.svg" />
       </motion.div>
     </>
   );

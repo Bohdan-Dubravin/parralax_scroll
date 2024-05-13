@@ -11,9 +11,10 @@ const Footer = () => {
 
   const { scrollYProgress: moonScroll } = useScroll({ target: moon, offset: ["start 1200px", "end 0.35"] });
   const moonScale = useTransform(moonScroll, [0, 1], ["0.7", "1"]);
-  const right = useTransform(moonScroll, [0, 1], ["90%", "10%"]);
+  const right = useTransform(moonScroll, [0, 1], ["60%", "10%"]);
   const top = useTransform(moonScroll, [0, 1], ["-50%", "-130%"]);
-  const rotate = useTransform(moonScroll, [0, 1], ["0deg", "90deg"]);
+  const rotate = useTransform(moonScroll, [0, 1], ["0deg", "50deg"]);
+  const rotatePlanet = useTransform(scrollYProgress, [0, 1], [3, 0]);
   return (
     <footer className="relative h-[552px]">
       <motion.img
@@ -24,9 +25,9 @@ const Footer = () => {
       ></motion.img>
       <motion.img
         src="/footer.png"
-        style={{ scale, translateY }}
+        style={{ scale, translateY, rotate: rotatePlanet }}
         ref={element}
-        className="width-[100%] absolute -z-10"
+        className="width-[100%] absolute -z-10 object-cover"
       ></motion.img>
     </footer>
   );
