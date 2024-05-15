@@ -3,34 +3,83 @@
 @tailwind utilities;
 
 .title__gradient {
-  background: linear-gradient(108.88deg, #b53ea4 -2.82%, #fc6f32 34.48%, #ff4a59 93.08%);
+  background: linear-gradient(
+    108.88deg,
+    #b53ea4 -2.82%,
+    #fc6f32 34.48%,
+    #ff4a59 93.08%
+  );
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
 }
 
 .bg__gradient {
-  background: linear-gradient(106.2deg, rgba(150, 52, 136, 0.2) -12.33%, rgba(252, 111, 50, 0.2) 50.28%, rgba(255, 74, 89, 0.2) 114.17%);
-
+  background: linear-gradient(
+    106.2deg,
+    rgba(150, 52, 136, 0.2) -12.33%,
+    rgba(252, 111, 50, 0.2) 50.28%,
+    rgba(255, 74, 89, 0.2) 114.17%
+  );
 }
 
 .border-gradient {
   position: relative;
 }
 
+.table__row:nth-child(2n) {
+  background-color: #131419;
+}
+.table__cell {
+  padding: 25px;
+}
+
+.table {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: left;
+}
 .border-gradient::before {
   content: "";
   position: absolute;
   inset: 0;
   /* border-radius: 50px; */
   border: 2px solid transparent;
-  background: linear-gradient(106.2deg, #963488 -12.33%, #FC6F32 50.28%, #FF4A59 114.17%);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) padding-box,
-    linear-gradient(#fff 0 0);
+  background: linear-gradient(
+    106.2deg,
+    #963488 -12.33%,
+    #fc6f32 50.28%,
+    #ff4a59 114.17%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
 
 body {
   background-color: #000;
+}
+
+/* scroll bar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #767676;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

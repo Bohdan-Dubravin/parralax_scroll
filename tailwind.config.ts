@@ -1,3 +1,4 @@
+import { inter } from "@/components/App";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -8,6 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        clashGrotesk: ["var(--font-clashGrotesk)"],
+        inter: ["var(--font-inter)"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

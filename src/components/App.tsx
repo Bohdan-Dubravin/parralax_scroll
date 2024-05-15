@@ -1,14 +1,15 @@
-import BackgroundImage from "@/components/BackgroundImage";
-import Comet from "@/components/Comet";
-import Footer from "@/components/Footer";
+import BackgroundImage from "@/components/sections/BackgroundImage";
+import Comet from "@/components/sections/Comet";
+import Footer from "@/components/sections/Footer";
 
-import SmoothScrollComponent from "./helpers/SmoothScroll";
-import ScrollLine from "@/components/ScrollLine";
+import SmoothScrollComponent from "@/components/helpers/SmothScroll";
+import ScrollLine from "@/components/sections/ScrollLine";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
-import Hero from "./Hero";
-import About from "./About";
-import Table from "./Table";
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Table from "./sections/Table";
+import Join from "./sections/Join";
 
 const clashGrotesk = localFont({
   src: [
@@ -42,9 +43,10 @@ const App = () => {
           <About />
           <Table />
         </div>
-
-        {/* <ScrollLine /> */}
-        <div className="h-[1200px]"></div>
+        <div className="h-[400px]"></div>
+        <ScrollLine />
+        <div className="h-[400px]"></div>
+        <Join />
       </main>
       <Footer />
     </SmoothScrollComponent>

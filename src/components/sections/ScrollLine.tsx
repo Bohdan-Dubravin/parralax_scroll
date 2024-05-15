@@ -5,7 +5,10 @@ import React, { useEffect, useRef } from "react";
 const ScrollLine = () => {
   const element = useRef(null);
   const elementScrollLine = useRef(null);
-  const { scrollYProgress } = useScroll({ target: element, offset: ["start 0.9", "start 0.7"] });
+  const { scrollYProgress } = useScroll({
+    target: element,
+    offset: ["start 0.8", "start 0.6"],
+  });
   const { scrollYProgress: scrollLine } = useScroll({
     target: elementScrollLine,
     offset: ["start end", "end start"],

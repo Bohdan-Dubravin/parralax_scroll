@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import Button from "./shared/Button";
+import Button from "../shared/Button";
 import { useScroll, useTransform, motion } from "framer-motion";
 
 const tableHeaders = [
@@ -182,42 +182,58 @@ const Table = () => {
   });
   const { scrollYProgress: scrollRocket } = useScroll({
     target: element,
-    offset: ["start end", "end 0.5"],
+    offset: ["start 0.2", "end 0.7"],
   });
-  const top = useTransform(scrollRocket, [0, 1], ["100%", "-200%"]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [30, 0]);
+  const top = useTransform(scrollRocket, [0, 1], ["100%", "-50%"]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [-30, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1.05, 1]);
 
   return (
     <div className="px-20 relative">
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-white text-5xl leading-[59px] font-clashGrotesk">LLM Leaderboard</h2>
+        <h2 className="text-white text-5xl leading-[59px] font-clashGrotesk">
+          LLM Leaderboard
+        </h2>
         <Button size="lg" className="text-xl leading-6">
           Submit your model
         </Button>
       </div>
       <p className="text-white text-xl leading-8 font-inter">
-        We evaluate LLMs on key benchmarks using the Eleuther AI, a framework to test LLMs on a large number of
-        different evaluation tasks. The higher the score, the better the LLM.
+        We evaluate LLMs on key benchmarks using the Eleuther AI, a framework to
+        test LLMs on a large number of different evaluation tasks. The higher
+        the score, the better the LLM.
       </p>
 
-      <motion.table ref={element} style={{ rotateX: rotate, scale }} className="bg-slate-500">
+      <motion.table
+        ref={element}
+        style={{ rotateX: rotate, scale }}
+        className="table"
+      >
         <thead>
           <tr>
             {tableHeaders.map((header, index) => (
-              <th key={index} className={`text-white text-xl leading-6 ${header.className}`}>
+              <th
+                key={index}
+                className={`text-white text-xl leading-6 ${header.className}`}
+              >
                 {header.label}
               </th>
             ))}
           </tr>
           {tableData.map((row, index) => (
-            <tr key={index}>
-              <td>
+            <tr className="table__row" key={index}>
+              <td className="table__cell">
                 {row.change === "up" ? (
-                  <img src="/images/up.svg" alt="up" />
+                  <img src="/assets/img/up.svg" alt="up" />
                 ) : row.change === "down" ? (
-                  <img src="/images/down.svg" alt="down" />
-                ) : null}
+                  <img src="/assets/img/down.svg" alt="down" />
+                ) : (
+                  <img
+                    src="/assets/img/same.svg"
+                    className="translate-x-[4px]"
+                    alt="same"
+                  />
+                )}
               </td>
 
               {dataKeys.map((key) => (
