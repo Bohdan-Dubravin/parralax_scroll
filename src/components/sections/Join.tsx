@@ -12,10 +12,7 @@ const Join = () => {
     target: element,
     offset: ["start start", "start 0.9"],
   });
-  const { scrollYProgress: scrollDeclineOpacity, scrollY } = useScroll({
-    target: declineOpacityELement,
-    offset: ["start end", "end -0.8"],
-  });
+
   const { scrollYProgress: nextText } = useScroll({
     target: nextElement,
     offset: ["start 0.5", "start 0.4"],
@@ -28,19 +25,15 @@ const Join = () => {
   const right = useTransform(moonScroll, [0, 1], ["90%", "-30%"]);
   const top = useTransform(moonScroll, [0, 1], ["-80%", "-50%"]);
   const rotate = useTransform(moonScroll, [0, 1], ["0deg", "90deg"]);
-  const declineOpacity = useTransform(scrollY, [0.7, 1], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0.1, 1], ["0", "1"]);
   return (
-    <div className="relative  mt-10 px-24 text-white -translate-y-20">
-      <motion.div ref={element} style={{ opacity: scrollYProgress }}>
-        <motion.div
-          ref={declineOpacityELement}
-          style={{ opacity: declineOpacity }}
-          className="-translate-y-40"
-        >
+    <div className="relative  mt-4 lg:mt-10 px-4 lg:px-24 text-white -translate-y-20 ">
+      <motion.div ref={element}>
+        <motion.div style={{ opacity }} className="-translate-y-40">
           <motion.h2 className="font-clashGrotesk text-[64px]  leading-[80px] font-medium mb-8">
             Join our community
           </motion.h2>
-          <motion.p className="text-2xl max-w-[940px] leading-9 font-inter font-normal mb-8">
+          <motion.p className="lg:text-2xl text-lg max-w-[940px] lg:leading-9 font-inter font-normal mb-8">
             Join us on our mission to to the moon & revolutionize open source AI
             development so that we can build a permissionless, democratized, and
             decentralized AI. <br />

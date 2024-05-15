@@ -189,62 +189,66 @@ const Table = () => {
   const scale = useTransform(scrollYProgress, [0, 1], [1.05, 1]);
 
   return (
-    <div className="px-20 relative">
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-white text-5xl leading-[59px] font-clashGrotesk">
+    <div className="lg:px-24 px-4 relative ">
+      <div className="lg:flex justify-between items-center mb-8">
+        <h2 className="text-white text-4xl lg:text-5xl leading-[59px] font-clashGrotesk">
           LLM Leaderboard
         </h2>
-        <Button size="lg" className="text-xl leading-6">
+        <Button
+          size="lg"
+          className=" text-lg lg:text-xl lg:leading-6 lg:w-fit w-full"
+        >
           Submit your model
         </Button>
       </div>
-      <p className="text-white text-xl leading-8 font-inter">
+      <p className="text-white text-lg lg:text-xl lg:leading-8 font-inter mb-8">
         We evaluate LLMs on key benchmarks using the Eleuther AI, a framework to
         test LLMs on a large number of different evaluation tasks. The higher
         the score, the better the LLM.
       </p>
-
-      <motion.table
-        ref={element}
-        style={{ rotateX: rotate, scale }}
-        className="table"
-      >
-        <thead>
-          <tr>
-            {tableHeaders.map((header, index) => (
-              <th
-                key={index}
-                className={`text-white text-xl leading-6 ${header.className}`}
-              >
-                {header.label}
-              </th>
-            ))}
-          </tr>
-          {tableData.map((row, index) => (
-            <tr className="table__row" key={index}>
-              <td className="table__cell">
-                {row.change === "up" ? (
-                  <img src="/assets/img/up.svg" alt="up" />
-                ) : row.change === "down" ? (
-                  <img src="/assets/img/down.svg" alt="down" />
-                ) : (
-                  <img
-                    src="/assets/img/same.svg"
-                    className="translate-x-[4px]"
-                    alt="same"
-                  />
-                )}
-              </td>
-
-              {dataKeys.map((key) => (
-                <td className="text-white text-xl leading-6" key={key}>
-                  {row[key as keyof typeof row]}
-                </td>
+      <div className="!overflow-x-auto">
+        <motion.table
+          ref={element}
+          style={{ rotateX: rotate, scale }}
+          className="table w-full "
+        >
+          <thead className="table__head-row">
+            <tr>
+              {tableHeaders.map((header, index) => (
+                <th
+                  key={index}
+                  className={`text-white text-xl !text-left leading-6 pl-0 p-[25px] ${header.className} !text-[#8F99B0]`}
+                >
+                  {header.label}
+                </th>
               ))}
             </tr>
-          ))}
-        </thead>
-      </motion.table>
+            {tableData.map((row, index) => (
+              <tr className="table__row" key={index}>
+                <td className="table__cell">
+                  {row.change === "up" ? (
+                    <img src="/assets/img/up.svg" alt="up" />
+                  ) : row.change === "down" ? (
+                    <img src="/assets/img/down.svg" alt="down" />
+                  ) : (
+                    <img
+                      src="/assets/img/same.svg"
+                      className="translate-x-[4px]"
+                      alt="same"
+                    />
+                  )}
+                </td>
+
+                {dataKeys.map((key) => (
+                  <td className="text-white text-xl leading-6" key={key}>
+                    {row[key as keyof typeof row]}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </thead>
+        </motion.table>
+      </div>
       <motion.img
         src="/rocket.svg"
         style={{ top }}

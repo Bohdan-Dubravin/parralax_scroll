@@ -12,7 +12,7 @@ const BackgroundImage = () => {
   const translateY = useTransform(scrollYProgress, [0, 0.3], [100, -150]);
   const rotateFog1 = useTransform(scrollYProgress, [0, 0.3], [-20, 40]);
   return (
-    <>
+    <div className="overflow-x-hidden">
       <motion.img
         src="/assets/img/planet.svg"
         style={{ top, translateY: translateY }}
@@ -31,7 +31,7 @@ const BackgroundImage = () => {
         // ref={element}
         className="width-[504px] text-center absolute -z-10 left-[-10%] top-[10%] rotate-[-20deg]"
       ></motion.img>
-    </>
+    </div>
   );
 };
 

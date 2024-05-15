@@ -13,12 +13,12 @@ const Footer = () => {
   const translateY = useTransform(scrollYProgress, [0, 1], ["0", "30%"]);
 
   return (
-    <footer className="relative h-[300px]">
+    <footer className="relative h-[300px] mt-64  ">
       <motion.img
         src="/footer.png"
         style={{ scale, translateY }}
         ref={element}
-        className="width-[100%] absolute -z-10"
+        className="w-full absolute h-full -z-10"
       ></motion.img>
     </footer>
   );

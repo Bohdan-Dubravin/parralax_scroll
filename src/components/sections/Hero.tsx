@@ -6,7 +6,7 @@ import Button from "../shared/Button";
 
 const Hero = () => {
   return (
-    <div className="px-5 lg:px-20 max-w-[1920px] w-full mx-auto">
+    <div className="px-5 lg:px-20 max-w-[1920px] w-full mx-auto overflow-x-hidden">
       <Header />
       <Title />
       <div>

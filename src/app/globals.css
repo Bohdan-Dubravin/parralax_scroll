@@ -57,6 +57,10 @@
   mask-composite: exclude;
 }
 
+* {
+  border: 1px solid #dbdbdb !important;
+}
+
 body {
   background-color: #000;
 }
